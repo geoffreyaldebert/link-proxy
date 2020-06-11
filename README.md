@@ -63,18 +63,11 @@ $ docker pull geodatagouv/link-proxy-worker:latest
 
 ### Development environment
 
-Run all dependency services by using the `dependencies.yml` docker-compose file in [`docker/dev`](https://github.com/geodatagouv/link-proxy/blob/master/docker/dev)
+Run all dependency services by using the `docker/dependencies.yml` docker-compose file.
 
 ```bash
-$ docker-compose -f dependencies.yml up
+$ docker-compose -f docker/dependencies.yml up
 ```
-
-The link-proxy apps are also available in the `apps.yml` file, if you just need to run all the services, run
-
-```bash
-$ docker-compose -f dependencies.yml -f apps.yml up
-```
-
 
 ## Web API
 
@@ -87,13 +80,13 @@ It takes a JSON object with a required `location` property, containing the URL t
 **Example**
 
 ```bash
-$ curl localhost:5000 -d '{"location": "https://geo.data.gouv.fr/robots.txt"}'
+$ curl localhost:5000 -d '{"location": "https://raw.githubusercontent.com/etalab/schema-irve/master/exemple-valide.csv"}'
 
 {
   "_id": "5aa167645d88a1a73a42995e",
   "createdAt": "2018-03-08T16:40:03.011Z",
   "locations": [
-    "https://geo.data.gouv.fr/robots.txt"
+    "https://raw.githubusercontent.com/etalab/schema-irve/master/exemple-valide.csv"
   ],
   "updatedAt": "2018-03-08T16:40:03.011Z"
 }
@@ -113,7 +106,7 @@ $ curl localhost:5000/5aa167645d88a1a73a42995e
   "createdAt": "2018-03-08T16:40:03.011Z",
   "updatedAt": "2018-03-08T16:40:03.081Z",
   "locations": [
-    "https://geo.data.gouv.fr/robots.txt"
+    "https://raw.githubusercontent.com/etalab/schema-irve/master/exemple-valide.csv"
   ],
   "downloads": [
     {
@@ -137,12 +130,12 @@ Find a link based on its URL. It will redirect (302) to the matching link, if fo
 **Example**
 
 ```bash
-$ curl -v 'localhost:5000/?location=https://geo.data.gouv.fr/robots.txt'
+$ curl -v 'localhost:5000/?location=https://raw.githubusercontent.com/etalab/schema-irve/master/exemple-valide.csv'
 
 *   Trying ::1...
 * TCP_NODELAY set
 * Connected to localhost (::1) port 5000 (#0)
-> GET /?location=https://geo.data.gouv.fr/robots.txt HTTP/1.1
+> GET /?location=https://raw.githubusercontent.com/etalab/schema-irve/master/exemple-valide.csv HTTP/1.1
 > Host: localhost:5000
 > User-Agent: curl/7.54.0
 > Accept: */*
@@ -239,7 +232,7 @@ The following body will be `POST`ed to a listening web service:
     "createdAt": "2018-03-08T16:40:03.011Z",
     "updatedAt": "2018-03-08T16:40:03.081Z",
     "state": "finished",
-    "location": "https://geo.data.gouv.fr/robots.txt",
+    "location": "https://raw.githubusercontent.com/etalab/schema-irve/master/exemple-valide.csv",
     "options": {
       "noCache": true
     },
