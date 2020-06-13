@@ -37,7 +37,6 @@
     "yazl": "^2.5.1"
   },
   "resolutions": {
-    "fsevents": "^2.0.1"
   },
   "devDependencies": {
     "codecov": "^3.5.0",
