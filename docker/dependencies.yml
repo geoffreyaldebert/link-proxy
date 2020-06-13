@@ -17,7 +17,7 @@ services:
     networks:
       - core
     ports:
-      - 27017:27017
+      - 127.0.0.1:27017:27017
 
   mongo-express:
     image: mongo-express:latest
@@ -26,7 +26,7 @@ services:
     networks:
       - core
     ports:
-      - 8081:8081
+      - 127.0.0.1:8081:8081
 
   redis:
     image: redis:4.0-alpine
@@ -35,7 +35,7 @@ services:
     networks:
       - core
     ports:
-      - 6379:6379
+      - 127.0.0.1:6379:6379
 
   arena:
     image: odlevakp/arena:2.4.2
@@ -46,7 +46,7 @@ services:
     volumes:
       - ./config/arena.json:/opt/arena/src/server/config/index.json
     ports:
-      - 4567:4567
+      - 127.0.0.1:4567:4567
 
   minio:
     image: minio/minio
@@ -57,6 +57,6 @@ services:
       - core
     environment:
       MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: minio-s3cr3t
+      MINIO_SECRET_KEY: tWobGU1a1naxp4Xg6XaoOA
     ports:
       - 9000:9000
