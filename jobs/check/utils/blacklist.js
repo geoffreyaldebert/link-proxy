@@ -8,6 +8,8 @@ const blacklisted = [
 
   'data.gouv.fr',
   // '*.data.gouv.fr',
+  'geo.data.gouv.fr',
+  '*.geo.data.gouv.fr',
 
   '*.openstreetmap.fr'
 ]
