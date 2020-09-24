@@ -117,7 +117,7 @@ const routes = router(
 const server = micro(handleErrors(routes))
 
 async function main() {
-  const port = process.env.PORT || 5000
+  const port = process.env.LINKPROXY_PORT || 5000
 
   await mongo.connect()
   await mongo.ensureIndexes()
