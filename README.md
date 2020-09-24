@@ -25,6 +25,7 @@ This requires a few services in order to function properly:
 - A redis server:
   - `REDIS_HOST` defaults to `localhost`
   - `REDIS_PORT` defaults to `6379`
+  - `REDIS_DB`defaults to `0`
 
 > The [`docker-compose`](https://github.com/geodatagouv/docker/blob/master/dev/docker-compose.yml) file in [geodatagouv/docker](https://github.com/geodatagouv/docker) exposes all these services for an easy development setup.
 
